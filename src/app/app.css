@@ -1,0 +1,206 @@
+:host {
+  display: block;
+  height: 100dvh;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ── Top section ─────────────────────────────────── */
+
+.top-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px 8px;
+  gap: 10px;
+  min-height: 0;
+}
+
+.rate-info {
+  text-align: center;
+}
+
+.updated-label {
+  font-size: 12px;
+  color: #777;
+  margin: 0 0 2px;
+}
+
+.rate-label {
+  font-size: 16px;
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+/* ── Input fields ────────────────────────────────── */
+
+.field-wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  gap: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+  background: var(--color-surface);
+  min-height: 56px;
+}
+
+.field-wrapper--active {
+  border-color: #00b2d2;
+}
+
+.field-currency {
+  font-size: 14px;
+  color: #777;
+  min-width: 40px;
+  flex-shrink: 0;
+}
+
+.field-input {
+  flex: 1;
+  text-align: right;
+  font-size: 32px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text);
+  width: 0;
+  min-width: 0;
+  cursor: pointer;
+}
+
+/* ── Currency selector row ───────────────────────── */
+
+.selector-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.currency-trigger {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.currency-trigger:hover,
+.currency-trigger:focus-visible {
+  border-color: #00b2d2;
+  box-shadow: 0 0 0 3px rgba(0, 178, 210, 0.1);
+}
+
+.trigger-flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.trigger-chevron {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.swap-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: color-mix(in srgb, #00b2d2 12%, transparent);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.swap-btn:hover {
+  background: color-mix(in srgb, #00b2d2 22%, transparent);
+}
+
+.swap-btn--active {
+  transform: scale(1.25);
+}
+
+/* ── Keyboard ────────────────────────────────────── */
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-kb-bg);
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-kb-bg);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.08s ease;
+  outline: none;
+}
+
+.key:nth-child(4n) {
+  border-right: none;
+}
+
+.key:nth-last-child(-n+4) {
+  border-bottom: none;
+}
+
+.key:active {
+  background: var(--color-kb-press);
+}
+
+.key--operator {
+  color: #00b2d2;
+}
+
+.key--accent {
+  color: #4b1e76;
+}
+
+.key--digit {
+  color: var(--color-text);
+}
+
+@media (prefers-color-scheme: dark) {
+  .updated-label {
+    color: #888;
+  }
+}
