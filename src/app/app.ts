@@ -111,8 +111,8 @@ export class App {
     return labels[key] ?? key;
   }
 
-  protected onFieldKeydown(field: 'upper' | 'lower', event: KeyboardEvent): void {
-    if (event.key === ' ') event.preventDefault();
+  protected onFieldKeydown(field: 'upper' | 'lower', event: Event): void {
+    event.preventDefault();
     this.state.setActiveField(field);
   }
 
