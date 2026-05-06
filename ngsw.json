@@ -1,0 +1,100 @@
+{
+  "configVersion": 1,
+  "timestamp": 1778088065733,
+  "index": "/currency-converter/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/currency-converter/favicon.ico",
+        "/currency-converter/index.html",
+        "/currency-converter/main-REKQLWGQ.js",
+        "/currency-converter/manifest.webmanifest",
+        "/currency-converter/styles-3I55BSMS.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/currency-converter/assets/converter-apple-touch-icon-180.png",
+        "/currency-converter/assets/converter-favicon-16.png",
+        "/currency-converter/assets/converter-favicon-32.png",
+        "/currency-converter/assets/converter-icon-144.png",
+        "/currency-converter/assets/converter-icon-192.png",
+        "/currency-converter/assets/converter-icon-48.png",
+        "/currency-converter/assets/converter-icon-512.png",
+        "/currency-converter/assets/converter-icon-72.png",
+        "/currency-converter/assets/converter-icon-96.png",
+        "/currency-converter/assets/converter-icon-maskable-192.png",
+        "/currency-converter/assets/converter-icon-maskable-512.png",
+        "/currency-converter/assets/converter-swap-icon.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "ecb-rates",
+      "patterns": [
+        "https:\\/\\/data-api\\.ecb\\.europa\\.eu\\/service\\/data\\/EXR\\/[^/]*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 1,
+      "maxAge": 86400000,
+      "timeoutMs": 10000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/currency-converter/assets/converter-apple-touch-icon-180.png": "9d55c309455cb1a682c436e7f393e63087b0e91d",
+    "/currency-converter/assets/converter-favicon-16.png": "7121477d0dff02cfefc6f63a6b576025742ee26c",
+    "/currency-converter/assets/converter-favicon-32.png": "778b9ee36e036e36e223d89168c7a477e95f437f",
+    "/currency-converter/assets/converter-icon-144.png": "972bbac61b37e835b987e19d9c8f356aef1cefa0",
+    "/currency-converter/assets/converter-icon-192.png": "c6102db1c2f27587d7398ec33df1d4aab86a7968",
+    "/currency-converter/assets/converter-icon-48.png": "20636a0e479c7afb8e88583c4b645d4f0ffe6ed2",
+    "/currency-converter/assets/converter-icon-512.png": "22a11ca4f5a359f3f0422ab31f71a0ca1d78b805",
+    "/currency-converter/assets/converter-icon-72.png": "d4519a457411164101d10a1023ca3f8fd2607a16",
+    "/currency-converter/assets/converter-icon-96.png": "f638a36450cafb54c1a5a8a402f7b1cc1e30749f",
+    "/currency-converter/assets/converter-icon-maskable-192.png": "745d0f50bbfe6f8899090c482452ecb8951f3309",
+    "/currency-converter/assets/converter-icon-maskable-512.png": "26bd04e9f26fce7a27bf8340848dec630e6e9e27",
+    "/currency-converter/assets/converter-swap-icon.svg": "1ab61458c0048cd346f8852f94abcc4c07f9bc5a",
+    "/currency-converter/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/currency-converter/index.html": "e9349b9e901d5195c8f2236cb5b8c21f6280098e",
+    "/currency-converter/main-REKQLWGQ.js": "2260b0e895c606f465d23ed59b872b07c269a652",
+    "/currency-converter/manifest.webmanifest": "66ed2f8efba55b2fd4e35e69aa525f468cdc0917",
+    "/currency-converter/styles-3I55BSMS.css": "e37d01a8d6e41acaa0f0350ff9e130a01c96bff7"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
