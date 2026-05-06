@@ -105,7 +105,9 @@
   color: var(--color-text);
   cursor: pointer;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -137,7 +139,9 @@
   background: color-mix(in srgb, #00b2d2 12%, transparent);
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 0.15s ease, background 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
 .swap-btn:hover {
@@ -179,7 +183,7 @@
   border-right: none;
 }
 
-.key:nth-last-child(-n+4) {
+.key:nth-last-child(-n + 4) {
   border-bottom: none;
 }
 

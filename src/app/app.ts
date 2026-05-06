@@ -5,11 +5,26 @@ import { ConverterStateService } from './services/converter-state.service';
 import { CurrencyPickerComponent } from './components/currency-picker/currency-picker.component';
 
 const KEYS = [
-  'del', '(', ')', '÷',
-  '7', '8', '9', '×',
-  '4', '5', '6', '-',
-  '1', '2', '3', '+',
-  'ans', '0', '.', '=',
+  'del',
+  '(',
+  ')',
+  '÷',
+  '7',
+  '8',
+  '9',
+  '×',
+  '4',
+  '5',
+  '6',
+  '-',
+  '1',
+  '2',
+  '3',
+  '+',
+  'ans',
+  '0',
+  '.',
+  '=',
 ] as const;
 
 const OPERATOR_KEYS = new Set(['+', '-', '×', '÷', '(', ')', '=']);
@@ -33,11 +48,11 @@ export class App {
   protected readonly upperPickerOpen = signal(false);
   protected readonly lowerPickerOpen = signal(false);
 
-  protected readonly upperCurrencyData = computed(() =>
-    this.currencies.find(c => c.code === this.state.upperCurrency())!
+  protected readonly upperCurrencyData = computed(
+    () => this.currencies.find((c) => c.code === this.state.upperCurrency())!,
   );
-  protected readonly lowerCurrencyData = computed(() =>
-    this.currencies.find(c => c.code === this.state.lowerCurrency())!
+  protected readonly lowerCurrencyData = computed(
+    () => this.currencies.find((c) => c.code === this.state.lowerCurrency())!,
   );
 
   protected readonly updatedLabel = computed(() => {
@@ -57,8 +72,8 @@ export class App {
     const rates = this.rateService.rates();
     const upperRate = rates[upper] ?? 1;
     const lowerRate = rates[lower] ?? 1;
-    const upperCurrency = this.currencies.find(c => c.code === upper);
-    const lowerCurrency = this.currencies.find(c => c.code === lower);
+    const upperCurrency = this.currencies.find((c) => c.code === upper);
+    const lowerCurrency = this.currencies.find((c) => c.code === lower);
     const value = lowerRate / upperRate;
     return `1 ${upperCurrency?.symbol ?? upper} = ${value.toFixed(4).replace(/\.?0+$/, '') || '0'} ${lowerCurrency?.symbol ?? lower}`;
   });
@@ -66,8 +81,9 @@ export class App {
   // Formats the integer part of each number in an expression with thin spaces
   // e.g. "1500+200" → "1 500+200", "1234567.89" → "1 234 567.89"
   protected format(value: string): string {
-    return value.replace(/(\d+)(\.\d*)?/g, (_, int, dec) =>
-      int.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + (dec ?? '')
+    return value.replace(
+      /(\d+)(\.\d*)?/g,
+      (_, int, dec) => int.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + (dec ?? ''),
     );
   }
 
@@ -84,8 +100,8 @@ export class App {
 
   protected keyAriaLabel(key: string): string {
     const labels: Record<string, string> = {
-      'del': 'Delete',
-      'ans': 'Insert last answer',
+      del: 'Delete',
+      ans: 'Insert last answer',
       '=': 'Evaluate',
       '÷': 'Divide',
       '×': 'Multiply',
@@ -93,6 +109,11 @@ export class App {
       ')': 'Close parenthesis',
     };
     return labels[key] ?? key;
+  }
+
+  protected onFieldKeydown(field: 'upper' | 'lower', event: KeyboardEvent): void {
+    if (event.key === ' ') event.preventDefault();
+    this.state.setActiveField(field);
   }
 
   protected swap(): void {

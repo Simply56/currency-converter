@@ -19,26 +19,43 @@ import type { Currency } from '../../models/currency';
     '(document:keydown.escape)': 'close()',
   },
   template: `
-    <div class="overlay" (click)="onOverlayClick($event)">
+    <div class="overlay">
       <div class="card" role="dialog" aria-modal="true" aria-label="Select currency">
         <div class="handle" aria-hidden="true"></div>
 
         <div class="card-header">
           <span class="card-title">Select currency</span>
           <button class="close-btn" type="button" (click)="close()" aria-label="Close">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18"/>
-              <line x1="6" y1="6" x2="18" y2="18"/>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
         </div>
 
         <div class="search-wrapper">
-          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          <svg
+            class="search-icon"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
           <input
             #searchInput
@@ -52,11 +69,24 @@ import type { Currency } from '../../models/currency';
             aria-label="Search currencies"
           />
           @if (search()) {
-            <button class="search-clear" type="button" (click)="clearSearch()" aria-label="Clear search">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
+            <button
+              class="search-clear"
+              type="button"
+              (click)="clearSearch()"
+              aria-label="Clear search"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </button>
           }
@@ -70,7 +100,8 @@ import type { Currency } from '../../models/currency';
               role="option"
               [attr.aria-selected]="c.code === selected()"
               type="button"
-              (click)="select(c.code)">
+              (click)="select(c.code)"
+            >
               <span class="item-flag" aria-hidden="true">{{ c.flag }}</span>
               <span class="item-details">
                 <span class="item-code">{{ c.code }}</span>
@@ -78,15 +109,23 @@ import type { Currency } from '../../models/currency';
               </span>
               <span class="item-symbol" aria-hidden="true">{{ c.symbol }}</span>
               @if (c.code === selected()) {
-                <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                     stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"/>
+                <svg
+                  class="item-check"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="20 6 9 17 4 12" />
                 </svg>
               }
             </button>
-          }
-          @empty {
+          } @empty {
             <p class="no-results">No results for "{{ search() }}"</p>
           }
         </div>
@@ -108,10 +147,11 @@ export class CurrencyPickerComponent {
   readonly filtered = computed(() => {
     const q = this.search().toLowerCase().trim();
     if (!q) return this.currencies();
-    return this.currencies().filter(c =>
-      c.code.toLowerCase().includes(q) ||
-      c.name.toLowerCase().includes(q) ||
-      c.symbol.toLowerCase().includes(q)
+    return this.currencies().filter(
+      (c) =>
+        c.code.toLowerCase().includes(q) ||
+        c.name.toLowerCase().includes(q) ||
+        c.symbol.toLowerCase().includes(q),
     );
   });
 
@@ -128,12 +168,6 @@ export class CurrencyPickerComponent {
 
   close(): void {
     this.dismissed.emit();
-  }
-
-  onOverlayClick(event: MouseEvent): void {
-    if (event.target === event.currentTarget) {
-      this.close();
-    }
   }
 
   onSearchInput(event: Event): void {

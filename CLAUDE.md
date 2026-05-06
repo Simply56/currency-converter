@@ -22,6 +22,7 @@ No linter is configured. Tests use Vitest (not Karma/Jasmine).
 **State:** Managed entirely with Angular signals. No NgRx or other state library. Derived values use `computed()`. Persisted state (selected currencies, last active field, cached rates, last-updated timestamp) lives in `localStorage` and is loaded into signals on startup.
 
 **Key services (to be built):**
+
 - `ExchangeRateService` — fetches ECB XML feed, parses rates, caches to `localStorage`, exposes rates as a signal.
 - `ConverterStateService` — owns the two currency selections, active field, field values, `lastAnswer`, and triggers recalculation.
 

@@ -10,7 +10,9 @@ export class ConverterStateService {
 
   readonly upperCurrency = signal<string>(localStorage.getItem('upperCurrency') ?? 'CZK');
   readonly lowerCurrency = signal<string>(localStorage.getItem('lowerCurrency') ?? 'EUR');
-  readonly activeField = signal<ActiveField>((localStorage.getItem('activeField') as ActiveField) ?? 'upper');
+  readonly activeField = signal<ActiveField>(
+    (localStorage.getItem('activeField') as ActiveField) ?? 'upper',
+  );
 
   private readonly _upperValue = signal('');
   private readonly _lowerValue = signal('');
@@ -35,9 +37,10 @@ export class ConverterStateService {
       const { active, value, activeCurrency, otherCurrency } = this.conversionSource();
       const rates = this.rateService.rates();
 
-      const setOther = active === 'upper'
-        ? (v: string) => this._lowerValue.set(v)
-        : (v: string) => this._upperValue.set(v);
+      const setOther =
+        active === 'upper'
+          ? (v: string) => this._lowerValue.set(v)
+          : (v: string) => this._upperValue.set(v);
 
       if (!value.trim()) {
         setOther('');
@@ -49,12 +52,18 @@ export class ConverterStateService {
 
       const activeRate = rates[activeCurrency] ?? 1;
       const otherRate = rates[otherCurrency] ?? 1;
-      setOther((num * otherRate / activeRate).toFixed(2));
+      setOther(((num * otherRate) / activeRate).toFixed(2));
     });
 
-    effect(() => { localStorage.setItem('upperCurrency', this.upperCurrency()); });
-    effect(() => { localStorage.setItem('lowerCurrency', this.lowerCurrency()); });
-    effect(() => { localStorage.setItem('activeField', this.activeField()); });
+    effect(() => {
+      localStorage.setItem('upperCurrency', this.upperCurrency());
+    });
+    effect(() => {
+      localStorage.setItem('lowerCurrency', this.lowerCurrency());
+    });
+    effect(() => {
+      localStorage.setItem('activeField', this.activeField());
+    });
   }
 
   setActiveField(field: ActiveField): void {
@@ -77,8 +86,9 @@ export class ConverterStateService {
 
   handleKey(key: string): void {
     const active = this.activeField();
-    const get = () => active === 'upper' ? this._upperValue() : this._lowerValue();
-    const set = (v: string) => active === 'upper' ? this._upperValue.set(v) : this._lowerValue.set(v);
+    const get = () => (active === 'upper' ? this._upperValue() : this._lowerValue());
+    const set = (v: string) =>
+      active === 'upper' ? this._upperValue.set(v) : this._lowerValue.set(v);
     const current = get();
 
     if (key === 'del') {

@@ -1,42 +1,54 @@
 <div class="app-shell">
-
   <!-- Top section: labels + inputs + currency selectors -->
   <div class="top-section">
-
     <div class="rate-info">
       <p class="updated-label">{{ updatedLabel() }}</p>
       <p class="rate-label">{{ rateLabel() }}</p>
     </div>
 
     <!-- Upper input field -->
-    <div class="field-wrapper"
-         [class.field-wrapper--active]="state.activeField() === 'upper'"
-         (click)="state.setActiveField('upper')">
-      <span class="field-currency">{{ state.upperCurrency() }}</span>
+    <div
+      class="field-wrapper"
+      role="button"
+      tabindex="0"
+      [class.field-wrapper--active]="state.activeField() === 'upper'"
+      [attr.aria-label]="state.upperCurrency() + ': ' + format(state.upperValue())"
+      (click)="state.setActiveField('upper')"
+      (keydown.enter)="state.setActiveField('upper')"
+      (keydown.space)="onFieldKeydown('upper', $event)"
+    >
+      <span class="field-currency" aria-hidden="true">{{ state.upperCurrency() }}</span>
       <input
         class="field-input"
         type="text"
         inputmode="none"
         readonly
+        tabindex="-1"
+        aria-hidden="true"
         [value]="format(state.upperValue())"
-        (focus)="state.setActiveField('upper')"
-        aria-label="Upper amount"
       />
     </div>
 
     <!-- Lower input field -->
-    <div class="field-wrapper"
-         [class.field-wrapper--active]="state.activeField() === 'lower'"
-         (click)="state.setActiveField('lower')">
-      <span class="field-currency">{{ state.lowerCurrency() }}</span>
+    <div
+      class="field-wrapper"
+      role="button"
+      tabindex="0"
+      [class.field-wrapper--active]="state.activeField() === 'lower'"
+      [attr.aria-label]="state.lowerCurrency() + ': ' + format(state.lowerValue())"
+      (click)="state.setActiveField('lower')"
+      (keydown.enter)="state.setActiveField('lower')"
+      (keydown.space)="onFieldKeydown('lower', $event)"
+    >
+      <span class="field-currency" aria-hidden="true">{{ state.lowerCurrency() }}</span>
       <input
         class="field-input"
         type="text"
         inputmode="none"
         readonly
+        tabindex="-1"
+        aria-hidden="true"
         [value]="format(state.lowerValue())"
-        (focus)="state.setActiveField('lower')"
-        aria-label="Lower amount"
       />
     </div>
 
@@ -46,7 +58,8 @@
         class="currency-trigger"
         type="button"
         (click)="upperPickerOpen.set(true)"
-        [attr.aria-label]="'Upper currency: ' + state.upperCurrency()">
+        [attr.aria-label]="'Upper currency: ' + state.upperCurrency()"
+      >
         <span class="trigger-flag" aria-hidden="true">{{ upperCurrencyData().flag }}</span>
         <span class="trigger-code">{{ state.upperCurrency() }}</span>
         <span class="trigger-chevron" aria-hidden="true">▾</span>
@@ -57,21 +70,28 @@
         [class.swap-btn--active]="swapping()"
         (click)="swap()"
         aria-label="Swap currencies"
-        type="button">
-        <img src="assets/converter-swap-icon.svg" alt="" width="24" height="24" aria-hidden="true" />
+        type="button"
+      >
+        <img
+          src="assets/converter-swap-icon.svg"
+          alt=""
+          width="24"
+          height="24"
+          aria-hidden="true"
+        />
       </button>
 
       <button
         class="currency-trigger"
         type="button"
         (click)="lowerPickerOpen.set(true)"
-        [attr.aria-label]="'Lower currency: ' + state.lowerCurrency()">
+        [attr.aria-label]="'Lower currency: ' + state.lowerCurrency()"
+      >
         <span class="trigger-flag" aria-hidden="true">{{ lowerCurrencyData().flag }}</span>
         <span class="trigger-code">{{ state.lowerCurrency() }}</span>
         <span class="trigger-chevron" aria-hidden="true">▾</span>
       </button>
     </div>
-
   </div>
 
   <!-- Currency pickers -->
@@ -102,10 +122,10 @@
         (click)="onKeyPress(key)"
         (pointerdown)="onPointerDown(key)"
         (pointerup)="onPointerUp()"
-        (pointerleave)="onPointerUp()">
+        (pointerleave)="onPointerUp()"
+      >
         {{ keyLabel(key) }}
       </button>
     }
   </div>
-
 </div>
