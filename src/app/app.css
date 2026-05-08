@@ -200,10 +200,10 @@
 .keyboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--color-border);
   background: var(--color-kb-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
 }
 
 .key {
@@ -218,29 +218,19 @@
     -apple-system,
     sans-serif;
   border: none;
-  border-right: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-kb-surface);
+  background: transparent;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition:
-    background 0.1s ease,
+    opacity 0.1s ease,
     transform 0.06s ease;
   outline: none;
 }
 
-.key:nth-child(4n) {
-  border-right: none;
-}
-
-.key:nth-last-child(-n + 4) {
-  border-bottom: none;
-}
-
 .key:active {
-  background: var(--color-kb-press);
-  transform: scale(0.96);
+  opacity: 0.5;
+  transform: scale(0.9);
 }
 
 .key--operator {
