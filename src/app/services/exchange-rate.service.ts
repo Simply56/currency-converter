@@ -1,8 +1,9 @@
 import { Injectable, signal } from '@angular/core';
+import { CURRENCIES } from '../models/currency';
 
-const CURRENCIES = ['CZK', 'GBP', 'USD', 'CAD', 'HUF', 'AUD', 'CHF', 'JPY', 'CNY', 'HKD', 'SGD'];
+const NON_EUR_CODES = CURRENCIES.filter(c => c.code !== 'EUR').map(c => c.code);
 const ECB_URL =
-  `https://data-api.ecb.europa.eu/service/data/EXR/D.${CURRENCIES.join('+')}.EUR.SP00.A` +
+  `https://data-api.ecb.europa.eu/service/data/EXR/D.${NON_EUR_CODES.join('+')}.EUR.SP00.A` +
   `?format=csvdata&lastNObservations=1&detail=dataonly`;
 
 const STORAGE_RATES = 'ratesMap';
