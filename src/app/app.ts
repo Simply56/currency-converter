@@ -128,6 +128,7 @@ export class App {
   protected onPointerDown(key: string): void {
     if (key !== 'del') return;
     this.longPressTimer = setTimeout(() => {
+      navigator.vibrate?.(50);
       this.state.handleKey('clear');
       this.longPressTimer = null;
       this.longPressFired = true;

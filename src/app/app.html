@@ -113,7 +113,7 @@
   }
 
   <!-- Custom keyboard -->
-  <div class="keyboard" role="group" aria-label="Calculator keyboard">
+  <div class="keyboard" role="group" aria-label="Calculator keyboard" (contextmenu)="$event.preventDefault()">
     @for (key of keys; track key) {
       <button
         [class]="keyClass(key)"
