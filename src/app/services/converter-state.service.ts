@@ -2,6 +2,8 @@ import { Injectable, computed, effect, inject, signal } from '@angular/core';
 import { evaluate } from '../utils/expression';
 import { ExchangeRateService } from './exchange-rate.service';
 
+const fmt = (n: number) => parseFloat(n.toPrecision(12)).toString();
+
 type ActiveField = 'upper' | 'lower';
 
 @Injectable({ providedIn: 'root' })
@@ -106,15 +108,14 @@ export class ConverterStateService {
       const result = evaluate(current);
       if (result !== null) {
         this.lastAnswer = result;
-        // Avoid trailing zeros for whole numbers
-        set(parseFloat(result.toPrecision(12)).toString());
+        set(fmt(result));
       }
       return;
     }
 
     if (key === 'ANS') {
       if (this.lastAnswer !== null) {
-        set(current + parseFloat(this.lastAnswer.toPrecision(12)).toString());
+        set(current + fmt(this.lastAnswer));
       }
       return;
     }

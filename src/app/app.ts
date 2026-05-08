@@ -67,15 +67,11 @@ export class App {
   });
 
   protected readonly rateLabel = computed(() => {
-    const upper = this.state.upperCurrency();
-    const lower = this.state.lowerCurrency();
+    const upper = this.upperCurrencyData();
+    const lower = this.lowerCurrencyData();
     const rates = this.rateService.rates();
-    const upperRate = rates[upper] ?? 1;
-    const lowerRate = rates[lower] ?? 1;
-    const upperCurrency = this.currencies.find((c) => c.code === upper);
-    const lowerCurrency = this.currencies.find((c) => c.code === lower);
-    const value = lowerRate / upperRate;
-    return `1 ${upperCurrency?.symbol ?? upper} = ${value.toFixed(4).replace(/\.?0+$/, '') || '0'} ${lowerCurrency?.symbol ?? lower}`;
+    const value = (rates[lower.code] ?? 1) / (rates[upper.code] ?? 1);
+    return `1 ${upper.symbol} = ${value.toFixed(4).replace(/\.?0+$/, '') || '0'} ${lower.symbol}`;
   });
 
   // Formats the integer part of each number in an expression with thin spaces

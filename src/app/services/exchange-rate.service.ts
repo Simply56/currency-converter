@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { CURRENCIES } from '../models/currency';
 
-const NON_EUR_CODES = CURRENCIES.filter(c => c.code !== 'EUR').map(c => c.code);
+const NON_EUR_CODES = CURRENCIES.filter((c) => c.code !== 'EUR').map((c) => c.code);
 const ECB_URL =
   `https://data-api.ecb.europa.eu/service/data/EXR/D.${NON_EUR_CODES.join('+')}.EUR.SP00.A` +
   `?format=csvdata&lastNObservations=1&detail=dataonly`;

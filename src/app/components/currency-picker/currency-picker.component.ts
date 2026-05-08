@@ -9,18 +9,36 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import type { Currency } from '../../models/currency';
 
 @Component({
   selector: 'app-currency-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './currency-picker.component.css',
+  imports: [NgTemplateOutlet],
   host: {
     '(document:keydown.escape)': 'close()',
   },
   template: `
     <div class="overlay" (click)="close()" aria-hidden="true"></div>
     <div class="palette" role="dialog" aria-modal="true" aria-label="Select currency">
+      <ng-template #xIcon let-size="size">
+        <svg
+          [attr.width]="size"
+          [attr.height]="size"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </ng-template>
+
       <div class="search-wrapper">
         <svg
           class="search-icon"
@@ -54,35 +72,11 @@ import type { Currency } from '../../models/currency';
             (click)="clearSearch()"
             aria-label="Clear search"
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              aria-hidden="true"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <ng-container *ngTemplateOutlet="xIcon; context: { size: 14 }" />
           </button>
         } @else {
           <button class="close-btn" type="button" (click)="close()" aria-label="Close">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              aria-hidden="true"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <ng-container *ngTemplateOutlet="xIcon; context: { size: 16 }" />
           </button>
         }
       </div>
