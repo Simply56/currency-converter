@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1778245121779,
+  "timestamp": 1778246867123,
   "index": "/currency-converter/index.html",
   "assetGroups": [
     {
@@ -13,9 +13,9 @@
       "urls": [
         "/currency-converter/favicon.ico",
         "/currency-converter/index.html",
-        "/currency-converter/main-C7RZ7XRK.js",
+        "/currency-converter/main-WAMIOVHL.js",
         "/currency-converter/manifest.webmanifest",
-        "/currency-converter/styles-4BCKTAMM.css"
+        "/currency-converter/styles-2YOP5N53.css"
       ],
       "patterns": []
     },
@@ -85,10 +85,10 @@
     "/currency-converter/assets/pwa-512x512.png": "02ef52a6683aba3d33a4f4dbcf763d4b80a3916a",
     "/currency-converter/assets/pwa-64x64.png": "b346a473f8b5261a4a5deef196fccf3c0c06fb25",
     "/currency-converter/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/currency-converter/index.html": "3ff0e51735d3b1ee59200ca3c9d94ac90710a1cb",
-    "/currency-converter/main-C7RZ7XRK.js": "11fc314daffbc8963f4b440e4d0271da4c79d3ea",
+    "/currency-converter/index.html": "fc0c43ff1118f00db188c4147fa6e5514db68f65",
+    "/currency-converter/main-WAMIOVHL.js": "ed4ed6b311226a0df8d46b5f2beeaf1218670685",
     "/currency-converter/manifest.webmanifest": "be2a82abeb67055a5b3b1d38cddd65fa1d4e81f9",
-    "/currency-converter/styles-4BCKTAMM.css": "7f7e4d936d28ec714f32558b5e17df28a9b51c5c"
+    "/currency-converter/styles-2YOP5N53.css": "91832a51fdfb7a646239525fdecc1c854696755b"
   },
   "navigationUrls": [
     {
