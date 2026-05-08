@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1778244377451,
+  "timestamp": 1778245121779,
   "index": "/currency-converter/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/currency-converter/favicon.ico",
         "/currency-converter/index.html",
-        "/currency-converter/main-G6VEC2BZ.js",
+        "/currency-converter/main-C7RZ7XRK.js",
         "/currency-converter/manifest.webmanifest",
         "/currency-converter/styles-4BCKTAMM.css"
       ],
@@ -27,6 +27,7 @@
         "ignoreVary": true
       },
       "urls": [
+        "/currency-converter/assets/apple-touch-icon-180x180.png",
         "/currency-converter/assets/converter-apple-touch-icon-180.png",
         "/currency-converter/assets/converter-favicon-16.png",
         "/currency-converter/assets/converter-favicon-32.png",
@@ -38,7 +39,12 @@
         "/currency-converter/assets/converter-icon-96.png",
         "/currency-converter/assets/converter-icon-maskable-192.png",
         "/currency-converter/assets/converter-icon-maskable-512.png",
-        "/currency-converter/assets/converter-swap-icon.svg"
+        "/currency-converter/assets/converter-swap-icon.svg",
+        "/currency-converter/assets/favicon.ico",
+        "/currency-converter/assets/maskable-icon-512x512.png",
+        "/currency-converter/assets/pwa-192x192.png",
+        "/currency-converter/assets/pwa-512x512.png",
+        "/currency-converter/assets/pwa-64x64.png"
       ],
       "patterns": []
     }
@@ -60,6 +66,7 @@
     }
   ],
   "hashTable": {
+    "/currency-converter/assets/apple-touch-icon-180x180.png": "891a25ba0fdc214ff387296b2212430f4254cc6c",
     "/currency-converter/assets/converter-apple-touch-icon-180.png": "9d55c309455cb1a682c436e7f393e63087b0e91d",
     "/currency-converter/assets/converter-favicon-16.png": "7121477d0dff02cfefc6f63a6b576025742ee26c",
     "/currency-converter/assets/converter-favicon-32.png": "778b9ee36e036e36e223d89168c7a477e95f437f",
@@ -72,10 +79,15 @@
     "/currency-converter/assets/converter-icon-maskable-192.png": "745d0f50bbfe6f8899090c482452ecb8951f3309",
     "/currency-converter/assets/converter-icon-maskable-512.png": "26bd04e9f26fce7a27bf8340848dec630e6e9e27",
     "/currency-converter/assets/converter-swap-icon.svg": "1ab61458c0048cd346f8852f94abcc4c07f9bc5a",
+    "/currency-converter/assets/favicon.ico": "cb4c2127479d7caa845aadb741e452d22b6a03c5",
+    "/currency-converter/assets/maskable-icon-512x512.png": "fa37e439e908d868bcff1a333554607a2f6efcca",
+    "/currency-converter/assets/pwa-192x192.png": "456d8c45b0ba00e13778be88550210a890d6aad9",
+    "/currency-converter/assets/pwa-512x512.png": "02ef52a6683aba3d33a4f4dbcf763d4b80a3916a",
+    "/currency-converter/assets/pwa-64x64.png": "b346a473f8b5261a4a5deef196fccf3c0c06fb25",
     "/currency-converter/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/currency-converter/index.html": "3da3905f0188a84bfb8c64982350a51c08fc0afb",
-    "/currency-converter/main-G6VEC2BZ.js": "1d22c5eed454f2fa56371a882d2163dda2e528b6",
-    "/currency-converter/manifest.webmanifest": "d56eb62def41aee6a977f89184d55997d160fafb",
+    "/currency-converter/index.html": "3ff0e51735d3b1ee59200ca3c9d94ac90710a1cb",
+    "/currency-converter/main-C7RZ7XRK.js": "11fc314daffbc8963f4b440e4d0271da4c79d3ea",
+    "/currency-converter/manifest.webmanifest": "be2a82abeb67055a5b3b1d38cddd65fa1d4e81f9",
     "/currency-converter/styles-4BCKTAMM.css": "7f7e4d936d28ec714f32558b5e17df28a9b51c5c"
   },
   "navigationUrls": [
