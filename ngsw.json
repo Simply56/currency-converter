@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1778248337660,
+  "timestamp": 1778249008701,
   "index": "/currency-converter/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/currency-converter/index.html",
         "/currency-converter/main-TAKBNEUI.js",
         "/currency-converter/manifest.webmanifest",
-        "/currency-converter/styles-JURVLXJ3.css"
+        "/currency-converter/styles-472LAMBV.css"
       ],
       "patterns": []
     },
@@ -85,10 +85,10 @@
     "/currency-converter/assets/pwa-512x512.png": "02ef52a6683aba3d33a4f4dbcf763d4b80a3916a",
     "/currency-converter/assets/pwa-64x64.png": "b346a473f8b5261a4a5deef196fccf3c0c06fb25",
     "/currency-converter/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/currency-converter/index.html": "4fd0464586ae209c24f33d4f69e1075e3633f10c",
+    "/currency-converter/index.html": "95b3028c46c6068735bb426bcf43eda0972f64b8",
     "/currency-converter/main-TAKBNEUI.js": "40590426a0c6fb07f487f28d5a985447eaafeeea",
     "/currency-converter/manifest.webmanifest": "633a8927046a2c96577074b25c9f089a71cca41c",
-    "/currency-converter/styles-JURVLXJ3.css": "c4c764aa2894ca1eba37ea24c53187337c48149d"
+    "/currency-converter/styles-472LAMBV.css": "f35525725ed80efe1deb3ab9a40eb54abe19b573"
   },
   "navigationUrls": [
     {
