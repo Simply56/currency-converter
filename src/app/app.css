@@ -200,9 +200,7 @@
 .keyboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: var(--color-kb-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: transparent;
   padding-bottom: max(12px, env(safe-area-inset-bottom));
 }
 

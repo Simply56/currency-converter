@@ -22,7 +22,7 @@ body {
 /* ── Color tokens — dark (aurora) is default ─────── */
 
 :root {
-  --color-bg: #08080f;
+  --color-bg: #000000;
   --color-surface: rgba(255, 255, 255, 0.05);
   --color-surface-hover: rgba(255, 255, 255, 0.08);
   --color-border: rgba(255, 255, 255, 0.1);
