@@ -4,8 +4,8 @@
   "description": "Currency converter",
   "display": "standalone",
   "orientation": "portrait",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/currency-converter/",
+  "scope": "/currency-converter/",
   "theme_color": "#00b2d2",
   "background_color": "#ffffff",
   "icons": [

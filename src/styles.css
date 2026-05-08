@@ -33,12 +33,12 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #121212;
-    --color-surface: #1e1e1e;
-    --color-border: #333333;
+    --color-bg: #000000;
+    --color-surface: #0d0d0d;
+    --color-border: #2a2a2a;
     --color-text: #f0f0f0;
     --color-text-secondary: #aaaaaa;
-    --color-kb-bg: #1a1a1a;
-    --color-kb-press: #2a2a2a;
+    --color-kb-bg: #000000;
+    --color-kb-press: #1a1a1a;
   }
 }

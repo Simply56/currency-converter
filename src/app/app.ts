@@ -21,14 +21,14 @@ const KEYS = [
   '2',
   '3',
   '+',
-  'ans',
+  'ANS',
   '0',
   '.',
   '=',
 ] as const;
 
 const OPERATOR_KEYS = new Set(['+', '-', '×', '÷', '(', ')', '=']);
-const ACCENT_KEYS = new Set(['del', 'ans']);
+const ACCENT_KEYS = new Set(['del', 'ANS']);
 
 @Component({
   selector: 'app-root',
@@ -131,7 +131,7 @@ export class App {
       this.state.handleKey('clear');
       this.longPressTimer = null;
       this.longPressFired = true;
-    }, 600);
+    }, 400);
   }
 
   protected onPointerUp(): void {

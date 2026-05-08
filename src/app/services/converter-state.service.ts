@@ -112,7 +112,7 @@ export class ConverterStateService {
       return;
     }
 
-    if (key === 'ans') {
+    if (key === 'ANS') {
       if (this.lastAnswer !== null) {
         set(current + parseFloat(this.lastAnswer.toPrecision(12)).toString());
       }
@@ -123,6 +123,11 @@ export class ConverterStateService {
     const operators = ['+', '-', '×', '÷'];
     if (operators.includes(key) && operators.includes(current.slice(-1))) {
       return;
+    }
+
+    if (key === '.') {
+      const lastSegment = current.split(/[+\-×÷]/).pop() ?? '';
+      if (lastSegment.includes('.')) return;
     }
 
     set(current + key);

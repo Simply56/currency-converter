@@ -19,16 +19,44 @@ import type { Currency } from '../../models/currency';
     '(document:keydown.escape)': 'close()',
   },
   template: `
-    <div class="overlay">
-      <div class="card" role="dialog" aria-modal="true" aria-label="Select currency">
-        <div class="handle" aria-hidden="true"></div>
-
-        <div class="card-header">
-          <span class="card-title">Select currency</span>
-          <button class="close-btn" type="button" (click)="close()" aria-label="Close">
+    <div class="overlay" (click)="close()" aria-hidden="true"></div>
+    <div class="palette" role="dialog" aria-modal="true" aria-label="Select currency">
+      <div class="search-wrapper">
+        <svg
+          class="search-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input
+          #searchInput
+          class="search-input"
+          type="search"
+          placeholder="Search currency…"
+          autocomplete="off"
+          spellcheck="false"
+          [value]="search()"
+          (input)="onSearchInput($event)"
+          aria-label="Search currencies"
+        />
+        @if (search()) {
+          <button
+            class="search-clear"
+            type="button"
+            (click)="clearSearch()"
+            aria-label="Clear search"
+          >
             <svg
-              width="18"
-              height="18"
+              width="14"
+              height="14"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -40,95 +68,61 @@ import type { Currency } from '../../models/currency';
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-        </div>
-
-        <div class="search-wrapper">
-          <svg
-            class="search-icon"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            aria-hidden="true"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-          <input
-            #searchInput
-            class="search-input"
-            type="search"
-            placeholder="Search code, name, or symbol…"
-            autocomplete="off"
-            spellcheck="false"
-            [value]="search()"
-            (input)="onSearchInput($event)"
-            aria-label="Search currencies"
-          />
-          @if (search()) {
-            <button
-              class="search-clear"
-              type="button"
-              (click)="clearSearch()"
-              aria-label="Clear search"
+        } @else {
+          <button class="close-btn" type="button" (click)="close()" aria-label="Close">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              aria-hidden="true"
             >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        }
+      </div>
+
+      <div class="currency-list" role="listbox" aria-label="Currencies">
+        @for (c of filtered(); track c.code) {
+          <button
+            class="currency-item"
+            [class.currency-item--selected]="c.code === selected()"
+            role="option"
+            [attr.aria-selected]="c.code === selected()"
+            type="button"
+            (click)="select(c.code)"
+          >
+            <span class="item-flag" aria-hidden="true">{{ c.flag }}</span>
+            <span class="item-details">
+              <span class="item-code">{{ c.code }}</span>
+              <span class="item-name">{{ c.name }}</span>
+            </span>
+            <span class="item-symbol" aria-hidden="true">{{ c.symbol }}</span>
+            @if (c.code === selected()) {
               <svg
-                width="14"
-                height="14"
+                class="item-check"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2.5"
                 stroke-linecap="round"
+                stroke-linejoin="round"
                 aria-hidden="true"
               >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
+                <polyline points="20 6 9 17 4 12" />
               </svg>
-            </button>
-          }
-        </div>
-
-        <div class="currency-list" role="listbox" aria-label="Currencies">
-          @for (c of filtered(); track c.code) {
-            <button
-              class="currency-item"
-              [class.currency-item--selected]="c.code === selected()"
-              role="option"
-              [attr.aria-selected]="c.code === selected()"
-              type="button"
-              (click)="select(c.code)"
-            >
-              <span class="item-flag" aria-hidden="true">{{ c.flag }}</span>
-              <span class="item-details">
-                <span class="item-code">{{ c.code }}</span>
-                <span class="item-name">{{ c.name }}</span>
-              </span>
-              <span class="item-symbol" aria-hidden="true">{{ c.symbol }}</span>
-              @if (c.code === selected()) {
-                <svg
-                  class="item-check"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              }
-            </button>
-          } @empty {
-            <p class="no-results">No results for "{{ search() }}"</p>
-          }
-        </div>
+            }
+          </button>
+        } @empty {
+          <p class="no-results">No results for "{{ search() }}"</p>
+        }
       </div>
     </div>
   `,
