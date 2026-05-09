@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1778249008701,
+  "timestamp": 1778354767714,
   "index": "/currency-converter/index.html",
   "assetGroups": [
     {
@@ -13,9 +13,9 @@
       "urls": [
         "/currency-converter/favicon.ico",
         "/currency-converter/index.html",
-        "/currency-converter/main-TAKBNEUI.js",
+        "/currency-converter/main-TE3TYIOA.js",
         "/currency-converter/manifest.webmanifest",
-        "/currency-converter/styles-472LAMBV.css"
+        "/currency-converter/styles-POCUJC7H.css"
       ],
       "patterns": []
     },
@@ -41,6 +41,10 @@
         "/currency-converter/assets/converter-icon-maskable-512.png",
         "/currency-converter/assets/converter-swap-icon.svg",
         "/currency-converter/assets/favicon.ico",
+        "/currency-converter/assets/fonts/jetbrains-mono-latin-ext.woff2",
+        "/currency-converter/assets/fonts/jetbrains-mono-latin.woff2",
+        "/currency-converter/assets/fonts/sora-latin-ext.woff2",
+        "/currency-converter/assets/fonts/sora-latin.woff2",
         "/currency-converter/assets/maskable-icon-512x512.png",
         "/currency-converter/assets/pwa-192x192.png",
         "/currency-converter/assets/pwa-512x512.png",
@@ -80,15 +84,19 @@
     "/currency-converter/assets/converter-icon-maskable-512.png": "26bd04e9f26fce7a27bf8340848dec630e6e9e27",
     "/currency-converter/assets/converter-swap-icon.svg": "1ab61458c0048cd346f8852f94abcc4c07f9bc5a",
     "/currency-converter/assets/favicon.ico": "cb4c2127479d7caa845aadb741e452d22b6a03c5",
+    "/currency-converter/assets/fonts/jetbrains-mono-latin-ext.woff2": "06ad36000cd89dec93e4398c5b62565ab1d1b1e2",
+    "/currency-converter/assets/fonts/jetbrains-mono-latin.woff2": "4f27206c4b1caf8b7805597fcbc6922ff5805daa",
+    "/currency-converter/assets/fonts/sora-latin-ext.woff2": "5ad15d919ce507ebd84ba6644c087bfd9d683365",
+    "/currency-converter/assets/fonts/sora-latin.woff2": "779e9507b31992161d36df9f8a78ee73a6e64225",
     "/currency-converter/assets/maskable-icon-512x512.png": "fa37e439e908d868bcff1a333554607a2f6efcca",
     "/currency-converter/assets/pwa-192x192.png": "456d8c45b0ba00e13778be88550210a890d6aad9",
     "/currency-converter/assets/pwa-512x512.png": "02ef52a6683aba3d33a4f4dbcf763d4b80a3916a",
     "/currency-converter/assets/pwa-64x64.png": "b346a473f8b5261a4a5deef196fccf3c0c06fb25",
     "/currency-converter/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/currency-converter/index.html": "95b3028c46c6068735bb426bcf43eda0972f64b8",
-    "/currency-converter/main-TAKBNEUI.js": "40590426a0c6fb07f487f28d5a985447eaafeeea",
+    "/currency-converter/index.html": "cb33350b74c6675215cfd196efbe716f2bb10d39",
+    "/currency-converter/main-TE3TYIOA.js": "f1bb8e77636008c24a5b5691a499cc06b137369c",
     "/currency-converter/manifest.webmanifest": "633a8927046a2c96577074b25c9f089a71cca41c",
-    "/currency-converter/styles-472LAMBV.css": "f35525725ed80efe1deb3ab9a40eb54abe19b573"
+    "/currency-converter/styles-POCUJC7H.css": "4b7b84b6d26566f9ab402d00bbd7801505656d6a"
   },
   "navigationUrls": [
     {
