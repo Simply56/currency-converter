@@ -15,8 +15,59 @@
     <link rel="icon" type="image/png" sizes="64x64" href="assets/pwa-64x64.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon-180x180.png">
     <link rel="manifest" href="manifest.webmanifest">
-  <style>@layer properties;@layer theme,base,components,utilities;@layer theme{:root{--font-sans:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--spacing:.25rem;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before{box-sizing:border-box;margin:0;padding:0;border:0 solid}html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings, normal);font-variation-settings:var(--default-font-variation-settings, normal);-webkit-tap-highlight-color:transparent}}@layer utilities{}*,*:before,*:after{box-sizing:border-box}html,body{margin:0;padding:0;height:100%;overflow:hidden}body{background:var(--color-bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}:root{--color-bg:#000000;--color-surface:rgba(255, 255, 255, .05);--color-surface-hover:rgba(255, 255, 255, .08);--color-border:rgba(255, 255, 255, .1);--color-border-active:rgba(0, 178, 210, .7);--color-text:#f0f0f5;--color-text-secondary:rgba(255, 255, 255, .55);--color-accent:#00b2d2;--color-accent-glow:rgba(0, 178, 210, .25);--color-kb-bg:rgba(255, 255, 255, .02);--color-kb-surface:rgba(255, 255, 255, .05);--color-kb-press:rgba(255, 255, 255, .12)}@media(prefers-color-scheme:light){:root{--color-bg:#f2f4f8;--color-surface:rgba(255, 255, 255, .85);--color-surface-hover:rgba(255, 255, 255, .95);--color-border:rgba(0, 0, 0, .09);--color-border-active:#0095a8;--color-text:#0f1117;--color-text-secondary:rgba(0, 0, 0, .5);--color-accent:#0095a8;--color-accent-glow:rgba(0, 149, 168, .2);--color-kb-bg:rgba(0, 0, 0, .03);--color-kb-surface:rgba(255, 255, 255, .9);--color-kb-press:rgba(0, 0, 0, .08)}}body:before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% -10%,rgba(0,180,200,.15) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% -5%,rgba(120,40,200,.12) 0%,transparent 50%),radial-gradient(ellipse 100% 60% at 50% 100%,rgba(0,100,150,.08) 0%,transparent 50%);pointer-events:none;z-index:0;animation:aurora-drift 12s ease-in-out infinite alternate}@keyframes aurora-drift{0%{opacity:.8;transform:scale(1) translateY(0)}to{opacity:1;transform:scale(1.05) translateY(-10px)}}@media(prefers-color-scheme:light){body:before{display:none}}@property --tw-outline-style{syntax:"*";inherits:false;initial-value:solid;}@property --tw-blur{syntax:"*";inherits:false;}@property --tw-brightness{syntax:"*";inherits:false;}@property --tw-contrast{syntax:"*";inherits:false;}@property --tw-grayscale{syntax:"*";inherits:false;}@property --tw-hue-rotate{syntax:"*";inherits:false;}@property --tw-invert{syntax:"*";inherits:false;}@property --tw-opacity{syntax:"*";inherits:false;}@property --tw-saturate{syntax:"*";inherits:false;}@property --tw-sepia{syntax:"*";inherits:false;}@property --tw-drop-shadow{syntax:"*";inherits:false;}@property --tw-drop-shadow-color{syntax:"*";inherits:false;}@property --tw-drop-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%;}@property --tw-drop-shadow-size{syntax:"*";inherits:false;}@layer properties{@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*,:before,:after{--tw-outline-style:solid;--tw-blur:initial;--tw-brightness:initial;--tw-contrast:initial;--tw-grayscale:initial;--tw-hue-rotate:initial;--tw-invert:initial;--tw-opacity:initial;--tw-saturate:initial;--tw-sepia:initial;--tw-drop-shadow:initial;--tw-drop-shadow-color:initial;--tw-drop-shadow-alpha:100%;--tw-drop-shadow-size:initial}}}</style><link rel="stylesheet" href="styles-POCUJC7H.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-POCUJC7H.css"></noscript></head>
+    <link rel="preload" href="assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>@layer properties;@layer theme,base,components,utilities;@layer theme{:root{--font-sans:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--spacing:.25rem;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before{box-sizing:border-box;margin:0;padding:0;border:0 solid}html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings, normal);font-variation-settings:var(--default-font-variation-settings, normal);-webkit-tap-highlight-color:transparent}}@layer utilities{}*,*:before,*:after{box-sizing:border-box}html,body{margin:0;padding:0;height:100%;overflow:hidden}body{background:var(--color-bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}:root{--color-bg:#000000;--color-surface:rgba(255, 255, 255, .05);--color-surface-hover:rgba(255, 255, 255, .08);--color-border:rgba(255, 255, 255, .1);--color-border-active:rgba(0, 178, 210, .7);--color-text:#f0f0f5;--color-text-secondary:rgba(255, 255, 255, .55);--color-accent:#00b2d2;--color-accent-glow:rgba(0, 178, 210, .25);--color-kb-bg:rgba(255, 255, 255, .02);--color-kb-surface:rgba(255, 255, 255, .05);--color-kb-press:rgba(255, 255, 255, .12)}@media(prefers-color-scheme:light){:root{--color-bg:#f2f4f8;--color-surface:rgba(255, 255, 255, .85);--color-surface-hover:rgba(255, 255, 255, .95);--color-border:rgba(0, 0, 0, .09);--color-border-active:#0095a8;--color-text:#0f1117;--color-text-secondary:rgba(0, 0, 0, .5);--color-accent:#0095a8;--color-accent-glow:rgba(0, 149, 168, .2);--color-kb-bg:rgba(0, 0, 0, .03);--color-kb-surface:rgba(255, 255, 255, .9);--color-kb-press:rgba(0, 0, 0, .08)}}body:before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% -10%,rgba(0,180,200,.15) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% -5%,rgba(120,40,200,.12) 0%,transparent 50%),radial-gradient(ellipse 100% 60% at 50% 100%,rgba(0,100,150,.08) 0%,transparent 50%);pointer-events:none;z-index:0;animation:aurora-drift 12s ease-in-out infinite alternate}@keyframes aurora-drift{0%{opacity:.8;transform:scale(1) translateY(0)}to{opacity:1;transform:scale(1.05) translateY(-10px)}}@media(prefers-color-scheme:light){body:before{display:none}}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid;}@property --tw-outline-style{syntax:"*";inherits:false;initial-value:solid;}@property --tw-blur{syntax:"*";inherits:false;}@property --tw-brightness{syntax:"*";inherits:false;}@property --tw-contrast{syntax:"*";inherits:false;}@property --tw-grayscale{syntax:"*";inherits:false;}@property --tw-hue-rotate{syntax:"*";inherits:false;}@property --tw-invert{syntax:"*";inherits:false;}@property --tw-opacity{syntax:"*";inherits:false;}@property --tw-saturate{syntax:"*";inherits:false;}@property --tw-sepia{syntax:"*";inherits:false;}@property --tw-drop-shadow{syntax:"*";inherits:false;}@property --tw-drop-shadow-color{syntax:"*";inherits:false;}@property --tw-drop-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%;}@property --tw-drop-shadow-size{syntax:"*";inherits:false;}@layer properties{@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*,:before,:after{--tw-border-style:solid;--tw-outline-style:solid;--tw-blur:initial;--tw-brightness:initial;--tw-contrast:initial;--tw-grayscale:initial;--tw-hue-rotate:initial;--tw-invert:initial;--tw-opacity:initial;--tw-saturate:initial;--tw-sepia:initial;--tw-drop-shadow:initial;--tw-drop-shadow-color:initial;--tw-drop-shadow-alpha:100%;--tw-drop-shadow-size:initial}}}</style><link rel="stylesheet" href="styles-QAAWT5A5.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-QAAWT5A5.css"></noscript></head>
   <body>
-    <app-root></app-root>
-  <script src="main-TE3TYIOA.js" type="module"></script></body>
+    <app-root>
+      <div aria-hidden="true" style="
+          display: flex;
+          flex-direction: column;
+          height: 100dvh;
+          padding: 12px 16px 8px;
+          gap: 10px;
+          position: relative;
+          z-index: 1;
+        ">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 10px; min-height: 0">
+          <div style="height: 32px"></div>
+          <div style="
+              height: 56px;
+              border: 1px solid var(--color-border);
+              border-radius: 16px;
+              background: var(--color-surface);
+            "></div>
+          <div style="
+              height: 56px;
+              border: 1px solid var(--color-border);
+              border-radius: 16px;
+              background: var(--color-surface);
+            "></div>
+          <div style="display: flex; align-items: center; gap: 8px">
+            <div style="
+                flex: 1;
+                height: 44px;
+                border: 1px solid var(--color-border);
+                border-radius: 12px;
+                background: var(--color-surface);
+              "></div>
+            <div style="
+                width: 44px;
+                height: 44px;
+                border: 1px solid var(--color-border);
+                border-radius: 50%;
+              "></div>
+            <div style="
+                flex: 1;
+                height: 44px;
+                border: 1px solid var(--color-border);
+                border-radius: 12px;
+                background: var(--color-surface);
+              "></div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); height: 320px"></div>
+      </div>
+    </app-root>
+  <script src="main-WCWS7B4M.js" type="module"></script></body>
 </html>
