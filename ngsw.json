@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1778357248161,
+  "timestamp": 1792520793556,
   "index": "/currency-converter/index.html",
   "assetGroups": [
     {
@@ -17,9 +17,9 @@
         "/currency-converter/assets/fonts/sora-latin.woff2",
         "/currency-converter/favicon.ico",
         "/currency-converter/index.html",
-        "/currency-converter/main-WCWS7B4M.js",
+        "/currency-converter/main-2CW63O7N.js",
         "/currency-converter/manifest.webmanifest",
-        "/currency-converter/styles-QAAWT5A5.css"
+        "/currency-converter/styles-OQU322IT.css"
       ],
       "patterns": []
     },
@@ -93,10 +93,10 @@
     "/currency-converter/assets/pwa-512x512.png": "02ef52a6683aba3d33a4f4dbcf763d4b80a3916a",
     "/currency-converter/assets/pwa-64x64.png": "b346a473f8b5261a4a5deef196fccf3c0c06fb25",
     "/currency-converter/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/currency-converter/index.html": "a8af6642ddacc8299d15e324893194dd2a4b9307",
-    "/currency-converter/main-WCWS7B4M.js": "6b6d562ff2dca955d6afb3e3c885cd40a81ab6d8",
+    "/currency-converter/index.html": "f51fa634092534c59c66c28fa09c24f796d85890",
+    "/currency-converter/main-2CW63O7N.js": "811a6819618f734e47802ae99185bc1f4e986501",
     "/currency-converter/manifest.webmanifest": "633a8927046a2c96577074b25c9f089a71cca41c",
-    "/currency-converter/styles-QAAWT5A5.css": "98a2893241c66b270f1385ecfc8c8c520db2b94a"
+    "/currency-converter/styles-OQU322IT.css": "0a2d679a89070fb9256853de1cb1086f64fc3f1e"
   },
   "navigationUrls": [
     {
