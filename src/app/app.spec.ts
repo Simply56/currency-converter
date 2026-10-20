@@ -14,10 +14,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render the swap button and keyboard', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, currency-converter');
+    expect(compiled.querySelector('[aria-label="Swap currencies"]')).toBeTruthy();
+    expect(compiled.querySelector('[aria-label="Calculator keyboard"]')).toBeTruthy();
   });
 });

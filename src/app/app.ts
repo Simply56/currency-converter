@@ -48,11 +48,11 @@ export class App {
   protected readonly upperPickerOpen = signal(false);
   protected readonly lowerPickerOpen = signal(false);
 
-  protected readonly upperCurrencyData = computed(
-    () => this.currencies.find((c) => c.code === this.state.upperCurrency())!,
+  protected readonly upperCurrencyData = computed(() =>
+    this.currencies.find((c) => c.code === this.state.upperCurrency())!,
   );
-  protected readonly lowerCurrencyData = computed(
-    () => this.currencies.find((c) => c.code === this.state.lowerCurrency())!,
+  protected readonly lowerCurrencyData = computed(() =>
+    this.currencies.find((c) => c.code === this.state.lowerCurrency())!,
   );
 
   protected readonly updatedLabel = computed(() => {
