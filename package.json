@@ -7,11 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --base-href /currency-converter/ && npx angular-cli-ghpages --dir dist/currency-converter/browser",
+    "deploy": "ng build --base-href /currency-converter/ && angular-cli-ghpages --dir dist/currency-converter/browser",
     "lint": "ng lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run lint && npm run format:check"
+    "check": "pnpm run lint && pnpm run format:check"
   },
   "private": true,
   "packageManager": "pnpm@12.14.0",

@@ -6,22 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 pnpm start         # dev server at http://localhost:4200
-ng build           # production build → dist/
-ng test            # unit tests via Vitest
-ng build --base-href /currency-converter/   # GitHub Pages build
+pnpm build         # production build → dist/
+pnpm test          # unit tests via Vitest
+pnpm run check     # ESLint + Prettier check
+pnpm deploy        # GitHub Pages build (--base-href /currency-converter/) and publish
 ```
 
-No linter is configured. Tests use Vitest (not Karma/Jasmine).
+Package manager is pnpm. Tests use Vitest (not Karma/Jasmine).
 
 ## Architecture
 
 **Product:** Single-screen currency converter PWA. Full requirements are in `SPEC.md`. No routing — the app is one screen.
 
-**Angular version:** 21. Standalone components are the default; do NOT set `standalone: true`. All conventions from `.claude/CLAUDE.md` apply (signals, OnPush, `input()`/`output()`, native control flow, no `ngClass`/`ngStyle`).
+**Angular version:** 22 (TypeScript stays on 6.0; Angular 22 requires <6.1). Standalone components are the default; do NOT set `standalone: true`. All conventions from `.claude/CLAUDE.md` apply (signals, OnPush, `input()`/`output()`, native control flow, no `ngClass`/`ngStyle`).
 
 **State:** Managed entirely with Angular signals. No NgRx or other state library. Derived values use `computed()`. Persisted state (selected currencies, last active field, cached rates, last-updated timestamp) lives in `localStorage` and is loaded into signals on startup.
 
-**Key services (to be built):**
+**Key services:**
 
 - `ExchangeRateService` — fetches ECB XML feed, parses rates, caches to `localStorage`, exposes rates as a signal.
 - `ConverterStateService` — owns the two currency selections, active field, field values, `lastAnswer`, and triggers recalculation.
