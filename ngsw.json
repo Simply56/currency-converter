@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1792520793556,
+  "timestamp": 1792521572904,
   "index": "/currency-converter/index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "/currency-converter/assets/fonts/sora-latin.woff2",
         "/currency-converter/favicon.ico",
         "/currency-converter/index.html",
-        "/currency-converter/main-2CW63O7N.js",
+        "/currency-converter/main-ADLKBVDP.js",
         "/currency-converter/manifest.webmanifest",
         "/currency-converter/styles-OQU322IT.css"
       ],
@@ -93,8 +93,8 @@
     "/currency-converter/assets/pwa-512x512.png": "02ef52a6683aba3d33a4f4dbcf763d4b80a3916a",
     "/currency-converter/assets/pwa-64x64.png": "b346a473f8b5261a4a5deef196fccf3c0c06fb25",
     "/currency-converter/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/currency-converter/index.html": "f51fa634092534c59c66c28fa09c24f796d85890",
-    "/currency-converter/main-2CW63O7N.js": "811a6819618f734e47802ae99185bc1f4e986501",
+    "/currency-converter/index.html": "f462b58d068f97222f1b5b780af82beeecd313a6",
+    "/currency-converter/main-ADLKBVDP.js": "127745aa843b56a5f9a9ecb7e8b4d5b46acdf4b1",
     "/currency-converter/manifest.webmanifest": "633a8927046a2c96577074b25c9f089a71cca41c",
     "/currency-converter/styles-OQU322IT.css": "0a2d679a89070fb9256853de1cb1086f64fc3f1e"
   },
