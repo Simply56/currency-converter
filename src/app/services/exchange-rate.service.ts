@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, computed, resource } from '@angular/core';
 import { CURRENCIES } from '../models/currency';
 
 const NON_EUR_CODES = CURRENCIES.filter((c) => c.code !== 'EUR').map((c) => c.code);
@@ -9,52 +9,60 @@ const ECB_URL =
 const STORAGE_RATES = 'ratesMap';
 const STORAGE_UPDATED = 'lastUpdated';
 
+interface RateSnapshot {
+  rates: Record<string, number>;
+  updated: number | null;
+}
+
 @Injectable({ providedIn: 'root' })
 export class ExchangeRateService {
-  readonly rates = signal<Record<string, number>>({ EUR: 1 });
-  readonly lastUpdated = signal<number | null>(null);
+  private readonly cached = this.loadFromCache();
 
-  constructor() {
-    this.loadFromCache();
-    this.fetchRates();
-  }
+  // The loader never throws: offline or timeout resolves to null and the cached rates remain.
+  private readonly live = resource<RateSnapshot | null, unknown>({
+    loader: ({ abortSignal }) => this.fetchRates(abortSignal),
+  });
 
-  private loadFromCache(): void {
+  readonly rates = computed(() => this.latest().rates);
+  readonly lastUpdated = computed(() => this.latest().updated);
+
+  private readonly latest = computed(
+    () => (this.live.hasValue() ? this.live.value() : null) ?? this.cached,
+  );
+
+  private loadFromCache(): RateSnapshot {
+    const snapshot: RateSnapshot = { rates: { EUR: 1 }, updated: null };
     const raw = localStorage.getItem(STORAGE_RATES);
     const ts = localStorage.getItem(STORAGE_UPDATED);
     if (raw) {
       try {
-        const parsed = JSON.parse(raw) as Record<string, number>;
-        this.rates.set({ EUR: 1, ...parsed });
+        snapshot.rates = { EUR: 1, ...(JSON.parse(raw) as Record<string, number>) };
       } catch {
         // ignore corrupt cache
       }
     }
     if (ts) {
-      this.lastUpdated.set(Number(ts));
+      snapshot.updated = Number(ts);
     }
+    return snapshot;
   }
 
-  async fetchRates(): Promise<void> {
+  private async fetchRates(abortSignal: AbortSignal): Promise<RateSnapshot | null> {
     try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10_000);
-      const res = await fetch(ECB_URL, { signal: controller.signal });
-      clearTimeout(timeout);
+      const res = await fetch(ECB_URL, {
+        signal: AbortSignal.any([abortSignal, AbortSignal.timeout(10_000)]),
+      });
+      if (!res.ok) return null;
 
-      if (!res.ok) return;
-
-      const text = await res.text();
-      const parsed = this.parseCsv(text);
-      if (!parsed) return;
+      const parsed = this.parseCsv(await res.text());
+      if (!parsed) return null;
 
       const now = Date.now();
       localStorage.setItem(STORAGE_RATES, JSON.stringify(parsed));
       localStorage.setItem(STORAGE_UPDATED, String(now));
-      this.rates.set({ EUR: 1, ...parsed });
-      this.lastUpdated.set(now);
+      return { rates: { EUR: 1, ...parsed }, updated: now };
     } catch {
-      // offline or timeout — cached rates remain
+      return null;
     }
   }
 

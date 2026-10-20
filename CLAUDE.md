@@ -18,7 +18,7 @@ Package manager is pnpm. Tests use Vitest (not Karma/Jasmine).
 
 **Product:** Single-screen currency converter PWA. Full requirements are in `SPEC.md`. No routing — the app is one screen.
 
-**Angular version:** 22 (TypeScript stays on 6.0; Angular 22 requires <6.1). Standalone components are the default; do NOT set `standalone: true`. All conventions from `.claude/CLAUDE.md` apply (signals, OnPush, `input()`/`output()`, native control flow, no `ngClass`/`ngStyle`).
+**Angular version:** 22 (TypeScript stays on 6.0; Angular 22 requires <6.1). Standalone components are the default; do NOT set `standalone: true`. All conventions from `.claude/CLAUDE.md` apply (signals, default OnPush, `input()`/`output()`, native control flow, no `ngClass`/`ngStyle`).
 
 **State:** Managed entirely with Angular signals. No NgRx or other state library. Derived values use `computed()`. Persisted state (selected currencies, last active field, cached rates, last-updated timestamp) lives in `localStorage` and is loaded into signals on startup.
 

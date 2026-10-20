@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CURRENCIES } from './models/currency';
 import { ExchangeRateService } from './services/exchange-rate.service';
 import { ConverterStateService } from './services/converter-state.service';
@@ -34,7 +34,6 @@ const ACCENT_KEYS = new Set(['del', 'ANS']);
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CurrencyPickerComponent],
 })
 export class App {

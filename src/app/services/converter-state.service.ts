@@ -16,47 +16,41 @@ export class ConverterStateService {
     (localStorage.getItem('activeField') as ActiveField) ?? 'upper',
   );
 
-  private readonly _upperValue = signal('');
-  private readonly _lowerValue = signal('');
-  readonly upperValue = this._upperValue.asReadonly();
-  readonly lowerValue = this._lowerValue.asReadonly();
+  // The user only ever types into the active field; the other field is derived from it.
+  private readonly activeText = signal('');
+  // Last text that evaluated (or was empty), so an invalid or incomplete expression keeps the
+  // other field's previous value.
+  private readonly validText = signal('');
+  private readonly otherText = computed(() => {
+    const text = this.validText();
+    if (!text.trim()) return '';
+
+    const num = evaluate(text);
+    if (num === null) return '';
+
+    const rates = this.rateService.rates();
+    const activeRate = rates[this.activeCurrencyCode()] ?? 1;
+    const otherRate = rates[this.otherCurrencyCode()] ?? 1;
+    return ((num * otherRate) / activeRate).toFixed(2);
+  });
+
+  readonly upperValue = computed(() =>
+    this.activeField() === 'upper' ? this.activeText() : this.otherText(),
+  );
+  readonly lowerValue = computed(() =>
+    this.activeField() === 'lower' ? this.activeText() : this.otherText(),
+  );
 
   private lastAnswer: number | null = null;
 
-  // Only reads the active field's value to avoid circular effects.
-  private readonly conversionSource = computed(() => {
-    const active = this.activeField();
-    return {
-      active,
-      value: active === 'upper' ? this._upperValue() : this._lowerValue(),
-      activeCurrency: active === 'upper' ? this.upperCurrency() : this.lowerCurrency(),
-      otherCurrency: active === 'upper' ? this.lowerCurrency() : this.upperCurrency(),
-    };
-  });
+  private readonly activeCurrencyCode = computed(() =>
+    this.activeField() === 'upper' ? this.upperCurrency() : this.lowerCurrency(),
+  );
+  private readonly otherCurrencyCode = computed(() =>
+    this.activeField() === 'upper' ? this.lowerCurrency() : this.upperCurrency(),
+  );
 
   constructor() {
-    effect(() => {
-      const { active, value, activeCurrency, otherCurrency } = this.conversionSource();
-      const rates = this.rateService.rates();
-
-      const setOther =
-        active === 'upper'
-          ? (v: string) => this._lowerValue.set(v)
-          : (v: string) => this._upperValue.set(v);
-
-      if (!value.trim()) {
-        setOther('');
-        return;
-      }
-
-      const num = evaluate(value);
-      if (num === null) return;
-
-      const activeRate = rates[activeCurrency] ?? 1;
-      const otherRate = rates[otherCurrency] ?? 1;
-      setOther(((num * otherRate) / activeRate).toFixed(2));
-    });
-
     effect(() => {
       localStorage.setItem('upperCurrency', this.upperCurrency());
     });
@@ -68,7 +62,15 @@ export class ConverterStateService {
     });
   }
 
+  private setText(text: string): void {
+    this.activeText.set(text);
+    if (!text.trim() || evaluate(text) !== null) this.validText.set(text);
+  }
+
   setActiveField(field: ActiveField): void {
+    if (field === this.activeField()) return;
+    // The converted value becomes the text the user continues editing.
+    this.setText(this.otherText());
     this.activeField.set(field);
   }
 
@@ -87,11 +89,8 @@ export class ConverterStateService {
   }
 
   handleKey(key: string): void {
-    const active = this.activeField();
-    const get = () => (active === 'upper' ? this._upperValue() : this._lowerValue());
-    const set = (v: string) =>
-      active === 'upper' ? this._upperValue.set(v) : this._lowerValue.set(v);
-    const current = get();
+    const set = (v: string) => this.setText(v);
+    const current = this.activeText();
 
     if (key === 'del') {
       set(current.slice(0, -1));
@@ -99,8 +98,7 @@ export class ConverterStateService {
     }
 
     if (key === 'clear') {
-      this._upperValue.set('');
-      this._lowerValue.set('');
+      set('');
       return;
     }
 

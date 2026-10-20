@@ -1,6 +1,5 @@
 import {
   afterNextRender,
-  ChangeDetectionStrategy,
   Component,
   computed,
   ElementRef,
@@ -14,7 +13,6 @@ import type { Currency } from '../../models/currency';
 
 @Component({
   selector: 'app-currency-picker',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './currency-picker.component.css',
   imports: [NgTemplateOutlet],
   host: {

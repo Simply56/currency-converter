@@ -28,7 +28,7 @@ Fetch <https://angular.dev/llms.txt>
 - Keep components small and focused on a single responsibility
 - Use `input()` and `output()` functions instead of decorators
 - Use `computed()` for derived state
-- Set `changeDetection: ChangeDetectionStrategy.OnPush` in `@Component` decorator
+- OnPush is the default in Angular 22; do not set `changeDetection` (use `ChangeDetectionStrategy.Eager` only to opt out)
 - Prefer inline templates for small components
 - Prefer Reactive forms instead of Template-driven ones
 - Do NOT use `ngClass`, use `class` bindings instead
