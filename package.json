@@ -14,7 +14,7 @@
     "check": "npm run lint && npm run format:check"
   },
   "private": true,
-  "packageManager": "npm@11.11.0",
+  "packageManager": "pnpm@12.14.0",
   "dependencies": {
     "@angular/common": "^22.2.3",
     "@angular/compiler": "^22.2.3",

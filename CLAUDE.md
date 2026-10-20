@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm start          # dev server at http://localhost:4200
+pnpm start         # dev server at http://localhost:4200
 ng build           # production build → dist/
 ng test            # unit tests via Vitest
 ng build --base-href /currency-converter/   # GitHub Pages build
